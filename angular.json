@@ -36,9 +36,15 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+           "styles": [
+            "@angular/material/prebuilt-themes/azure-blue.css",
+            "src/assets/themes/aura-light-blue.css",
+            "node_modules/primeicons/primeicons.css",
+            "node_modules/primeflex/primeflex.css",
+            "src/styles.css"
+          ]
+
+,
             "scripts": []
           },
           "configurations": {
@@ -95,12 +101,21 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/assets/themes/aura-light-blue.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css",
               "src/styles.css"
-            ],
+            ]
+
+,
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ae865ddb-3590-4486-91b9-3e82ffbac0d3"
   }
 }
