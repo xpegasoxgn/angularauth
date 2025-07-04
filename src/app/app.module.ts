@@ -8,6 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 
 
+import  Aura  from '@primeng/themes/aura';
+import { providePrimeNG } from 'primeng/config';
+
+import {ButtonModule} from 'primeng/button';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,9 +21,15 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AuthModule
+    AuthModule,
+    ButtonModule
   ],
-  providers: [],
+  providers: [
+
+    providePrimeNG({
+      theme:{preset:Aura}
+    })
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
