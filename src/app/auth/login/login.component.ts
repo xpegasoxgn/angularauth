@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup,Validator, Validators } from '@angular/forms';
+import {Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: false,
@@ -8,7 +9,7 @@ import { FormBuilder, FormGroup,Validator, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder , private router: Router){
     this.loginForm=this.fb.group({
       username:['',Validators.required],
       password:['',Validators.required]
@@ -22,4 +23,7 @@ export class LoginComponent {
     }
   }
 
+  goToRegister(): void{
+    this.router.navigate(['/auth/register']);
+  }
 }
