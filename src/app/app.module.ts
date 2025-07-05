@@ -12,10 +12,12 @@ import  Aura  from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 
 import {ButtonModule} from 'primeng/button';
+import { HomeComponent } from './home/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

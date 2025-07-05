@@ -14,4 +14,7 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/register`,usuario,{responseType:'text'});
   }
 
+  login(credentials:{username:string, password:string}){
+    return this.http.post<any>(`${this.baseUrl}/login`, credentials);
+  }
 }
