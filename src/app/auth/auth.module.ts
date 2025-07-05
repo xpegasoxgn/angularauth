@@ -14,7 +14,8 @@ import { MatCardModule } from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
 
 //prime 
-
+import { ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ConfirmationService} from 'primeng/api';
 import { InputTextModule} from 'primeng/inputtext';
 import { ButtonModule} from 'primeng/button';
 import { PasswordModule} from 'primeng/password';
@@ -46,11 +47,13 @@ import { MultiSelectModule } from 'primeng/multiselect';
     ToastModule,
     MessagesModule,
     CardModule,
-    MultiSelectModule
+    MultiSelectModule,
+    ConfirmDialogModule
 
   ],
   providers:[
-    MessageService
+    MessageService,
+    ConfirmationService
   ]
 })
 export class AuthModule { }

@@ -3,6 +3,7 @@ import { FormBuilder,FormGroup,Validator, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Usuario } from '../models/usuario.model';
 import { MessageService } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 @Component({
   selector: 'app-register',
   standalone: false,
@@ -17,7 +18,10 @@ export class RegisterComponent {
     {label:'USUARIO', value:'USER'}
     
   ];
-  constructor(private fb:FormBuilder, private authService:AuthService ,private messageService:MessageService){
+  constructor(private fb:FormBuilder, 
+    private authService:AuthService ,
+    private messageService:MessageService,
+    private confirmationService:ConfirmationService){
 
     this.registerForm=this.fb.group({
       username:['',Validators.required],
@@ -32,13 +36,22 @@ export class RegisterComponent {
 
   onSubmit(){
     if(this.registerForm.valid){
-      const usuario: Usuario=this.registerForm.value;
-      this.authService.register(usuario).subscribe({
-        next:()=>{
-          this.messageService.add({severity:'success', summary:'Registro exitoso', detail:'Usuario registrado exitosamente'})
-        },
-        error:(err) =>{
-          this.messageService.add({severity:'error', summary:'ERROR', detail: err.error?.message || 'No se pudo registrar'})
+      this.confirmationService.confirm({
+        message: 'Desea Registrar este usuario?',
+        header:'Confirmación',
+        icon:'pi pi-question-circle',
+        acceptLabel:'Si',
+        rejectLabel:'No',
+        accept:()=>{
+          const usuario: Usuario=this.registerForm.value;
+          this.authService.register(usuario).subscribe({
+            next:(res)=>{
+              this.messageService.add({severity:'success', summary:'Registro exitoso', detail: res ||'Usuario registrado exitosamente'})
+            },
+            error:(err) =>{
+              this.messageService.add({severity:'error', summary:'ERROR', detail: err.error?.message || 'No se pudo registrar'})
+            }
+          })
         }
       })
     }

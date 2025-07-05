@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   register(usuario:Usuario):Observable<any>{
-    return this.http.post(`${this.baseUrl}/register`,usuario);
+    return this.http.post(`${this.baseUrl}/register`,usuario,{responseType:'text'});
   }
 
 }
