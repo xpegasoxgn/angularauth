@@ -1,8 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+/* Para prime ng*/
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
+/* para material el theme*/
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+ 

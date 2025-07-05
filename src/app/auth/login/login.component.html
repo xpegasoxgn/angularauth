@@ -1,19 +1,20 @@
 
+<div class="login-bg">
+    <div class="login-center">
+        <mat-card class="login-card">
+            <h2>Iniciar sesion</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>USUARIO</mat-label>
+                    <input matInput formControlName="username" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>CONTRASEÑA</mat-label>
+                    <input matInput formControlName="password" type="password" required>
+                </mat-form-field>
 
-<div class="login-conteiner">
-<mat-card class="login-card">
-    <h2>Iniciar sesion</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill" class="full-width">
-            <mat-label>USUARIO</mat-label>
-            <input matInput formControlName="username" required>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="full-width">
-            <mat-label>CONTRASEÑA</mat-label>
-            <input matInput formControlName="password" type="password" required>
-        </mat-form-field>
-
-        <button mat-raised-button color="danger" type="submit" [disabled]="loginForm.invalid">Ingresar</button>
-    </form>
-</mat-card>
+                <button mat-raised-button color="danger" type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+            </form>
+        </mat-card>
+    </div>
 </div>
