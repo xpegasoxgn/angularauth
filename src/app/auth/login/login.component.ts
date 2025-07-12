@@ -27,10 +27,16 @@ export class LoginComponent {
       const credentials=this.loginForm.value;
       this.authService.login(credentials).subscribe({
         next:(res)=>{
-          localStorage.setItem('jwt_token',res.token);
+          localStorage.setItem('token',res.token);
           localStorage.setItem('username',res.username);
           localStorage.setItem('roles',res.roles);
-          this.router.navigate(['/home']);
+          const token = encodeURIComponent(res.token);
+          const username=encodeURIComponent(res.username);
+          const roles=encodeURIComponent(JSON.stringify(res.roles));
+          //this.router.navigate(['/home']);
+
+          console.log('redirigiendo al : ', `http://localhost:4300?token=${token}&username=${username}&roles=${roles}`) 
+          window.location.href=`http://localhost:4300?token=${token}&username=${username}&roles=${roles}`;
         },
         error:(err)=>{
           const mensaje=err.error?.messagge
